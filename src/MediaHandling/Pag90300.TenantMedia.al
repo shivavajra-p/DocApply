@@ -2,6 +2,7 @@ namespace DocApply.DocApply;
 
 using System.Environment;
 using System.DataAdministration;
+using Microsoft.Foundation.Attachment;
 
 page 90300 TenantMedia
 {
@@ -92,12 +93,13 @@ page 90300 TenantMedia
     {
         area(processing)
         {
-            action(ImportExcel)
+            action(DownloadMedia)
             {
                 ApplicationArea = All;
 
                 trigger OnAction()
                 begin
+
                     if not MediaCleanup.DownloadTenantMedia(Rec.ID) then
                         Error('No Media found');
                 end;

@@ -1,6 +1,7 @@
 namespace DocApply.DocApply;
 
 using Microsoft.Foundation.Attachment;
+using Microsoft.Sales.Customer;
 
 page 90301 DocumentAttachment
 {
@@ -9,7 +10,7 @@ page 90301 DocumentAttachment
     PageType = List;
     SourceTable = "Document Attachment";
     UsageCategory = Lists;
-    
+
     layout
     {
         area(Content)
@@ -101,6 +102,12 @@ page 90301 DocumentAttachment
                     ToolTip = 'Specifies the value of the SystemModifiedBy field.', Comment = '%';
                 }
             }
+            // part(TenantMedia;TenantMedia)
+            // {
+            //     SubPageLink = ID = field("Document Reference ID".Mediaid)
+            // }
         }
     }
+    var
+        cust: Page "Customer Card"
 }
